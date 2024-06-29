@@ -3,11 +3,14 @@ import cors from "cors";
 import paymentRouter from "./routes/payment.route.js";
 import bodyParser from "body-parser";
 import path from "path"
+import dotenv from "dotenv";
 
+dotenv.config();
 const app = express();
 
-var Publishable_Key = 'sk_test_51PWuUxHNPIcQuEE9ndYn7qLJC39GfsYY11siqFRMLe2hPuSmQFtGLOKd2QTdybr8LPqHMDDJPEw0LuUarL2l6Enh003Icy6YxI'
-var Secret_Key = 'sk_test_51PWuUxHNPIcQuEE9ndYn7qLJC39GfsYY11siqFRMLe2hPuSmQFtGLOKd2QTdybr8LPqHMDDJPEw0LuUarL2l6Enh003Icy6YxI'
+
+var Publishable_Key = process.env.STRIPE_PUBLIC;
+var Secret_Key = process.env.STRIPE_SECTECT;
 
 const corsOptions = {
   origin: 'http://localhost:5173', // Replace with your client origin

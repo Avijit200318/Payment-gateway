@@ -1,6 +1,9 @@
 import Stripe from "stripe";
+import dotenv from "dotenv";
 
-const stripe = Stripe("sk_test_51PWuUxHNPIcQuEE9ndYn7qLJC39GfsYY11siqFRMLe2hPuSmQFtGLOKd2QTdybr8LPqHMDDJPEw0LuUarL2l6Enh003Icy6YxI");
+dotenv.config();
+
+const stripe = Stripe(process.env.STRIPE_SECTECT);
 
 export const stripePayment = async (req, res, next) => {
     try {
