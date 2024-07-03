@@ -1,9 +1,9 @@
 import express from "express";
-import { stripePayment, stripeIndia } from "../controllers/payment.controller.js";
+import { stripePayment, phonePePayment} from "../controllers/payment.controller.js";
 
 const router = express.Router();
 
 router.post("/stripePay", stripePayment);
-router.post("/stripeIndia", stripeIndia);
+router.post("/phonePe", phonePePayment);
 
 export default router;

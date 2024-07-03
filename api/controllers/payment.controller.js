@@ -37,6 +37,13 @@ export const stripePayment = async (req, res, next) => {
     }
 };
 
-export const stripeIndia = async(req, res, next) => {
+// ______Phonepe___________
 
-}
+
+export const phonePePayment = async (req, res, next) => {
+    try {
+        
+    } catch (error) {
+        next(error)
+    }
+};

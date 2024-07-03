@@ -8,9 +8,9 @@ import dotenv from "dotenv";
 dotenv.config();
 const app = express();
 
-
 var Publishable_Key = process.env.STRIPE_PUBLIC;
 var Secret_Key = process.env.STRIPE_SECTECT;
+// _______________PhonePe____________________
 
 const corsOptions = {
   origin: 'http://localhost:5173', // Replace with your client origin
@@ -18,6 +18,12 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+app.use(bodyParser.json());
+app.use(
+  bodyParser.urlencoded({
+    extended: false,
+  })
+);
 
 app.use(express.json());
 
