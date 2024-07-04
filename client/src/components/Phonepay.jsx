@@ -11,17 +11,18 @@ export default function Phonepay() {
                 },
                 body: JSON.stringify({
                     name: "Avijit",
-                    price: 100,
-                    number: '9999999999',
-                    MID: 'MID' + Date.now(),
-                    transactionId: 'transactionId' + Date.now(),
+                    price: 100
                 }),
             });
+            
+            const data = await res.json();
+
             if (data.success === false) {
                 console.log(data.message);
                 return;
             }
-            console.log("done phonePe payment");
+            console.log("done phonePe payment ", data);
+            window.location.href = data.data.instrumentResponse.redirectInfo.url;
         } catch (error) {
             console.log(error);
         }
