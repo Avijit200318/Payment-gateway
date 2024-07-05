@@ -30,7 +30,7 @@ export default function Phonepay() {
 
     return (
         <div>
-            <button onClick={handlePhonepay} className="bg-blue-600 text-white rounded-md px-4 py-2">Phone pay</button>
+            <button onClick={handlePhonepay} className="bg-blue-600 text-white rounded-md px-4 py-2">Phonepe</button>
         </div>
     )
 }

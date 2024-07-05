@@ -29,7 +29,7 @@ export default function Stripe() {
 
     return (
         <div>
-            <button onClick={stripePayment} className="px-4 py-2 bg-blue-400 text-white rounded-md">Stripe pay</button>
+            <button onClick={stripePayment} className="px-4 py-2 bg-orange-400 text-white rounded-md">Stripe</button>
         </div>
     )
 }
