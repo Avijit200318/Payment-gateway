@@ -15,8 +15,8 @@ export const payPal = async (req, res, next) => {
                 "payment_method": "paypal"
             },
             "redirect_urls": {
-                "return_url": "http://localhost:5173",
-                "cancel_url": "http://localhost:5173"
+                "return_url": "http://localhost:5173/success",
+                "cancel_url": "http://localhost:5173/cancel"
             },
             "transactions": [{
                 "item_list": {
@@ -50,4 +50,33 @@ export const payPal = async (req, res, next) => {
     } catch (error) {
         next(error);
     }
-}
+};
+
+// export const successPayPal = async (req, res, next) => {
+//     try{
+//         const payerId = req.body.PayerID;
+//         const paymentId = req.body.paymentId;
+
+//         const execute_payment_json = {
+//             "payer_id": payerId,
+//             "transactions": [{
+//                 "amount": {
+//                     "currency": "USD",
+//                     "total": "25.00"
+//                 }
+//             }]
+//         };
+
+//         paypal.payment.execute(paymentId, execute_payment_json, function (error, payment) {
+//             if (error) {
+//                 console.log(error.response);
+//                 throw error;
+//             } else {
+//                 // console.log(JSON.stringify(payment));
+//                 res.status(200).json(payment);
+//             }
+//         });
+//     }catch(error){
+//         next(error);
+//     }
+// }
