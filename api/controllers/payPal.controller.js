@@ -1,9 +1,12 @@
 import paypal from "paypal-rest-sdk";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 paypal.configure({
     'mode': 'sandbox', //sandbox or live
-    'client_id': 'ASHKKR-4z1YCUVyINoJpgxvON6M4wUa1Ft3QA7gKr5mcgO2SVoqw9YpWsEVcIXTgSpBkQ67bKjfTAahd',
-    'client_secret': 'EPK9RbNl3sKFIJmEb6nuyuBwHsU8yDYk0YzoUtGJPt66UxR7qYFzK4jZOmoneJO4pMAX1Cwg_17jCNf1'
+    'client_id': process.env.PAYPAL_CLIENT_ID,
+    'client_secret': process.env.PAYPAL_CLIENT_SECRECT
 });
 
 export const payPal = async (req, res, next) => {

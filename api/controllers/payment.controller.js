@@ -17,7 +17,7 @@ export const stripePayment = async (req, res, next) => {
             line_items: [
                 {
                     price_data: {
-                        currency: 'USD',
+                        currency: 'INR',
                         product_data: {
                             name: req.body.name,
                         },
@@ -30,8 +30,8 @@ export const stripePayment = async (req, res, next) => {
             shipping_address_collection: {
                 allowed_countries: ['US', 'BR', 'IN']
             },
-            success_url: `http://localhost:3000/complete?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `http://localhost:3000/cancel`
+            success_url: `http://localhost:5173/success?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `http://localhost:5173/cancel`
         });
 
         // Send session URL as response
@@ -55,9 +55,9 @@ export const phonePePayment = async (req, res, next) => {
           "merchantTransactionId": tx_uuid,
           "merchantUserId": "MUID123",
           "amount": req.body.price * 100,
-          "redirectUrl": "http://localhost:5173",
+          "redirectUrl": "http://localhost:5173/success",
           "redirectMode": "REDIRECT",
-          "callbackUrl": "http://localhost:5173",
+          "callbackUrl": "http://localhost:5173/success",
           "mobileNumber": "9999999999",
           "paymentInstrument": {
             "type": "PAY_PAGE"
